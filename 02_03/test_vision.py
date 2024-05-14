@@ -11,7 +11,7 @@ with open("rex-microcontrollers-mug-black.jpg", "rb") as f:
     base64_image = base64.b64encode(file_content).decode("utf-8")
 
 response = client.chat.completions.create(
-    model="gpt-4-turbo",
+    model="gpt-4o",
     response_format={"type": "json_object"},
     messages=[
         {
@@ -20,7 +20,7 @@ response = client.chat.completions.create(
                 {
                     "type": "text",
                     "text": 'As an interior designer you are capable of describing very specific colors. What colors are used in this mug? \
-                        Avoid generic color names. Output should be JSON list: ["color1", "color2",...]',
+                        Avoid generic color names. Output should be a JSON list: ["color1", "color2",...]',
                 },
                 {
                     "type": "image_url",
